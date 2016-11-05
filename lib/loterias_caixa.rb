@@ -20,7 +20,7 @@ module LoteriasCaixa
 
 
   def duplasena contest_id = 0
-    result = _contest("duplasena", contest_id, {})
+    _before_contest("duplasena", contest_id, {})
   end
 
   def lotomania contest_id = 0
@@ -73,8 +73,10 @@ module LoteriasCaixa
       return {numbers: numbers, prize: prize, contest_date: contest_date, contest_number: contest_number, is_last?: url == last_contest_url}
 
     rescue ContestNotFound => e
+      logger.error(e.backtrace.join("\n"))
       return _contest(contest_name, 0, css)
-    rescue Exception => e
+    rescue StandardError => e
+      logger.error(e.backtrace.join("\n"))
       return nil
     end
   end
