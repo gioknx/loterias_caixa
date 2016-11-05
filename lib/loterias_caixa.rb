@@ -3,7 +3,6 @@ require 'rest-client'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require 'byebug'
 
 require_relative 'exceptions'
 
@@ -11,28 +10,45 @@ require_relative 'exceptions'
 module LoteriasCaixa
   extend self
 
+  attr_writer :logger
+
+  def logger
+    @logger ||= Logger.new($stdout).tap do |log|
+      log.progname = self.name
+    end
+  end
+
 
   def duplasena contest_id = 0
-    _contest("duplasena", contest_id, {})
+    result = _contest("duplasena", contest_id, {})
   end
 
   def lotomania contest_id = 0
-    _contest("lotomania", contest_id, {:numbers => ".simple-table > tr > td"})
+    _before_contest("lotomania", contest_id, {:numbers => ".simple-table > tr > td"})
   end
   def quina contest_id = 0
-    _contest("quina", contest_id, {})
+    _before_contest("quina", contest_id, {})
   end
 
   def megasena contest_id = 0
-    _contest("megasena", contest_id, {})
+    _before_contest("megasena", contest_id, {})
   end
 
   def timemania contest_id = 0
-    _contest("timemania", contest_id, {})
+    _before_contest("timemania", contest_id, {})
   end
 
   def lotofacil contest_id = 0
-    _contest("lotofacil", contest_id, {:numbers => ".simple-table > tbody > tr > td"})
+    _before_contest("lotofacil", contest_id, {:numbers => ".simple-table > tbody > tr > td"})
+
+  end
+
+  def _before_contest(contest_name, contest_id, css)
+    result = ""
+    while !result.is_a?(Hash)
+      result = _contest(contest_name, contest_id, css)
+    end
+    result
   end
 
   def _contest(contest_name, contest_id, css)
@@ -59,7 +75,9 @@ module LoteriasCaixa
     rescue ContestNotFound => e
       return _contest(contest_name, 0, css)
     rescue Exception => e
-      p e.message
+      #logger.error(e.backtrace.join("\n"))
+      return nil
+      #if(e.message == "302 Found")
     end
   end
 
