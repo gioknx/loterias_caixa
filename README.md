@@ -1,9 +1,11 @@
 # loterias_caixa  -- busque dados de loterias
-[![Coverage Status](https://coveralls.io/repos/github/gioknx/loterias-caixa/badge.svg?branch=master)](https://coveralls.io/github/gioknx/loterias-caixa?branch=master)
-[![Test Coverage](https://codeclimate.com/github/gioknx/loterias_caixa/badges/coverage.svg)](https://codeclimate.com/github/gioknx/loterias_caixa/coverage)
+
 [![Build Status](https://travis-ci.org/gioknx/loterias-caixa.svg?branch=master)](https://travis-ci.org/gioknx/loterias-caixa)
 [![Code Climate](https://codeclimate.com/github/gioknx/loterias_caixa/badges/gpa.svg)](https://codeclimate.com/github/gioknx/loterias_caixa)
+[![Test Coverage](https://codeclimate.com/github/gioknx/loterias_caixa/badges/coverage.svg)](https://codeclimate.com/github/gioknx/loterias_caixa/coverage)
+[![Coverage Status](https://coveralls.io/repos/github/gioknx/loterias-caixa/badge.svg?branch=master)](https://coveralls.io/github/gioknx/loterias-caixa?branch=master)
 [![Issue Count](https://codeclimate.com/github/gioknx/loterias_caixa/badges/issue_count.svg)](https://codeclimate.com/github/gioknx/loterias_caixa)
+[![Reuben approval](https://img.shields.io/badge/reuben-approved-brightgreen.svg)](https://github.com/reuben)
 
 Uma biblioteca para busca de dados das principais loterias da Caixa Federal.
 
