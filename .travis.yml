@@ -14,3 +14,4 @@ notifications:
       - giovanikx@gmail.com
     on_failure: change
     on_success: never
+    
