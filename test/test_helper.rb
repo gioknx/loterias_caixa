@@ -7,6 +7,9 @@ Coveralls.wear!
 require "simplecov"
 SimpleCov.start
 
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 require 'loterias_caixa'
 require 'minitest/autorun'
 require "minitest/reporters"
