@@ -75,9 +75,7 @@ module LoteriasCaixa
     rescue ContestNotFound => e
       return _contest(contest_name, 0, css)
     rescue Exception => e
-      #logger.error(e.backtrace.join("\n"))
       return nil
-      #if(e.message == "302 Found")
     end
   end
 

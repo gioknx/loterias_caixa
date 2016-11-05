@@ -1,5 +1,6 @@
 # loterias_caixa  -- busque dados de loterias
 [![Coverage Status](https://coveralls.io/repos/github/gioknx/loterias-caixa/badge.svg?branch=master)](https://coveralls.io/github/gioknx/loterias-caixa?branch=master)
+[![Build Status](https://travis-ci.org/gioknx/loterias-caixa.svg?branch=master)](https://travis-ci.org/gioknx/loterias-caixa)
 
 
 Uma biblioteca para busca de dados das principais loterias da Caixa Federal.
