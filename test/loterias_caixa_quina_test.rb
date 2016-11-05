@@ -42,14 +42,14 @@ class LoteriasCaixaQuinaTest < Minitest::Test
   def test_it_can_fetch_any_contest
     fifth_contest = LoteriasCaixa.send(@@contest_name, 5)
     refute_nil fifth_contest
-    refute_empty fifth_contest
+    assert_kind_of Hash, fifth_contest
     refute_equal fifth_contest[:contest_number].to_i, @@resultados[:contest_number].to_i
   end
 
   def test_invalid_numbers_get_last_contest
     uninexistent_contest = LoteriasCaixa.send(@@contest_name,12000)
     refute_nil uninexistent_contest
-    refute_empty uninexistent_contest
+    assert_kind_of Hash, uninexistent_contest
     assert_equal uninexistent_contest[:contest_number].to_i, @@resultados[:contest_number].to_i
   end
 
