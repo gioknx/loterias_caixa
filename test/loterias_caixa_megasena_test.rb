@@ -31,7 +31,7 @@ class LoteriasCaixaMegasenaTest < Minitest::Test
   end
 
   def test_contest_number_is_integer
-    assert_kind_of Integer, @@resultados[:contest_number].to_i
+    assert_kind_of Integer, @@resultados[:contest_number].to_i.to_i
   end
 
   def test_is_last_is_bool
@@ -41,12 +41,16 @@ class LoteriasCaixaMegasenaTest < Minitest::Test
 
   def test_it_can_fetch_any_contest
     fifth_contest = LoteriasCaixa.send(@@contest_name, 5)
-    refute_equal fifth_contest[:contest_number], @@resultados[:contest_number]
+    refute_nil fifth_contest
+    refute_empty fifth_contest
+    refute_equal fifth_contest[:contest_number].to_i, @@resultados[:contest_number].to_i
   end
 
   def test_invalid_numbers_get_last_contest
     uninexistent_contest = LoteriasCaixa.send(@@contest_name,12000)
-    assert_equal uninexistent_contest[:contest_number], @@resultados[:contest_number]
+    refute_nil uninexistent_contest
+    refute_empty uninexistent_contest
+    assert_equal uninexistent_contest[:contest_number].to_i, @@resultados[:contest_number].to_i
   end
 
 end
