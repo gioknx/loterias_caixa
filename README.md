@@ -1,42 +1,55 @@
-# LoteriasCaixa
+# loterias_caixa  -- busque dados de loterias
+[![Coverage Status](https://coveralls.io/repos/github/gioknx/loterias-caixa/badge.svg?branch=master)](https://coveralls.io/github/gioknx/loterias-caixa?branch=master)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/loterias_caixa`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+Uma biblioteca para busca de dados das principais loterias da Caixa Federal.
 
-## Installation
+Atualmente são suportadas as seguintes loterias:
 
-Add this line to your application's Gemfile:
+Duplasena
+Lotofácil
+Lotomania
+Megasena
+Quina
+Timemania
+
+## Instalação
+
+Adicione essa linha no seu Gemfile
 
 ```ruby
 gem 'loterias_caixa'
 ```
 
-And then execute:
-
+E então execute:
     $ bundle
 
-Or install it yourself as:
-
+Ou instale você mesmo com:
     $ gem install loterias_caixa
 
-## Usage
+## Uso
 
-TODO: Write usage instructions here
+O uso é simples:
 
-## Development
+```ruby
+>> LoteriasCaixa.megasena
+=> {:numbers=>["11", "13", "25", "39", "46", "56"], :prize=>"R$ 5.000.000,00", :contest_date=>"03/11/2016", :contest_number=>"1872", :is_last?=>true}
+>> LoteriasCaixa.megasena 1500
+=> {:numbers=>["10", "18", "31", "43", "57", "59"], :prize=>"R$ 3.000.000,00", :contest_date=>"05/06/2013", :contest_number=>"1500", :is_last?=>false}
+>> LoteriasCaixa.megasena 6000 # Número inválido. Retorna o último prémio.
+=> {:numbers=>["11", "13", "25", "39", "46", "56"], :prize=>"R$ 5.000.000,00", :contest_date=>"03/11/2016", :contest_number=>"1872", :is_last?=>true}
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Contribuindo
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1. Fork it
+2. Crie seu branch de funcionalidade (`git checkout -b minha-funcionalidade`)
+3. Commit suas alterações (`git commit -am 'Adicionando alguma funcionalidade'`)
+4. Push para o branch (`git push origin minha-funcionalidade`)
+5. Crie um novo Pull Request
 
-## Contributing
+## Licença
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/loterias_caixa. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+Essa gem está disponível como open-source sob os termos da [MIT License](http://opensource.org/licenses/MIT).
 
 # loterias-caixa
