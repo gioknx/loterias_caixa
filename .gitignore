@@ -9,3 +9,4 @@
 /tmp/
 .coveralls.yml
 .byebug_history
+.travis.yml

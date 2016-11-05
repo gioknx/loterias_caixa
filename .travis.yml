@@ -5,6 +5,9 @@ rvm:
   - 2.3.0
 before_install: gem install bundler -v 1.12.5
 script: 'bundle exec rake'
+addons:
+    code_climate:
+        repo_token: 5a616104ba94c9b8847e1b1b9c1c4a7b16c984ef3cc3859928f4ef6ea4f8c6ef
 notifications:
   email:
     recipients:
