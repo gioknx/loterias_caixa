@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'byebug'
+
 class LoteriasCaixaLotofacilTest < Minitest::Test
   @@contest_name = "lotofacil"
   @@resultados = LoteriasCaixa.send(@@contest_name)
@@ -47,7 +47,6 @@ class LoteriasCaixaLotofacilTest < Minitest::Test
   end
 
   def test_invalid_numbers_get_last_contest
-    byebug
     uninexistent_contest = LoteriasCaixa.send(@@contest_name,12000)
     refute_nil uninexistent_contest
     refute_empty uninexistent_contest
